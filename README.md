@@ -8,3 +8,4 @@ $ launchctl unload ~/Library/LaunchAgents/com.nightscout.notifier.plist
 $ launchctl list | grep night
 ```
 
+[[https://github.com/mazek/nsnotifier/blob/master/notification-screenshot.png]]
