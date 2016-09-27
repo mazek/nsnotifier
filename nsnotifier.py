@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import json, urllib2, os
+from time import strftime, gmtime, localtime
 
 ns_url = "http://ns.rajewski.pl/"
 min = 80
@@ -23,16 +24,27 @@ j = urllib2.urlopen('%s/pebble' % ns_url)
 
 data = json.load(j)
 
-bwpo = data['bgs'][0]['sgv']
-bgdelta = data['bgs'][0]['bgdelta']
+cur_time = data['status'][0]['now']
+read_time = data['bgs'][0]['datetime']
 
-if bgdelta > 0:
-   bgdelta_s = "+%s" % bgdelta
-else:
-   bgdelta_s = "%s" % bgdelta
-
-if bwpo < min or bwpo > max:
+if cur_time - read_time > 1800000:
+   lost_time = strftime("%d %b %Y %H:%M",localtime(read_time/1000))
    notify(title    = 'Nightscout read.',
           subtitle = '',
-          message  = 'Sugar: %s, change: %s' % (bwpo, bgdelta_s))
+          message  = 'I\'ve lost parakeet signal at: %s' % (lost_time))
+
+else:
+   bwpo = data['bgs'][0]['sgv']
+   bgdelta = data['bgs'][0]['bgdelta']
+
+   if bgdelta > 0:
+      bgdelta_s = "+%s" % bgdelta
+   else:
+      bgdelta_s = "%s" % bgdelta
+
+   if bwpo < min or bwpo > max:
+      notify(title    = 'Nightscout read.',
+             subtitle = '',
+             message  = 'Sugar: %s, change: %s' % (bwpo, bgdelta_s))
+
 
