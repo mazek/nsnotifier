@@ -12,10 +12,11 @@ def notify(title, subtitle, message):
    m = '-message {!r}'.format(message)
    snd = '-sound \'default\''
    url = '-open %s' % ns_url
+   group = '-group 666000666'
    
    appIcon = '-appIcon http://www.nightscout.info/wp-content/uploads/2014/07/Nightscout.png'
 
-   os.system('/usr/local/bin/terminal-notifier {}'.format(' '.join([m, t, s, snd, url, appIcon])))
+   os.system('/usr/local/bin/terminal-notifier {}'.format(' '.join([m, t, s, snd, url, appIcon, group])))
 
 
 j = urllib2.urlopen('%s/pebble' % ns_url)
