@@ -1,6 +1,6 @@
-Simple notifier for Mac OS X. It grabs data from pebble endpoint on nightscout site and show it as notification on desktop vie notify() command.
+Simple notifier for Mac OS X. It grabs data from pebble endpoint on nightscout site and shows it as notification on desktop vie notify() command.
 
-There is no installer at the omment but there is also good news - it's ultra simple. You've got two files: "com.nightscout.notifier.plist" and "nsnotifier.py". To install this "software" all You have to is:
+There is no installer at the moment but there is also good news - it's ultra simple. You've got two files: "com.nightscout.notifier.plist" and "nsnotifier.py". To install this "software" all You have to is:
 
 
 Edit __nsnotifier.py__ top variables:
