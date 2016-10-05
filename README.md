@@ -6,7 +6,7 @@ There is no installer at the moment but there is also good news - it's ultra sim
 Edit __nsnotifier.py__ top variables:
 
 ```
-ns_url = "http://ns.rajewski.pl/"
+ns_url = "http://yours.nightscout_address.com/"
 min = 80
 max = 160
 ```
