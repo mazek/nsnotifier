@@ -4,11 +4,13 @@
     <dict>
         <key>Label</key>
         <string>com.nightscout.notifier</string>
+
         <key>ProgramArguments</key>
         <array>
            <string>/usr/bin/python</string>
            <string>/usr/local/bin/nsnotifier.py</string>
         </array>
+
         <key>RunAtLoad</key>
         <true/>
   
@@ -19,8 +21,7 @@
         <string>/tmp/local.nsnotifier.stdout</string>
 
         <key>StartInterval</key>
-        <integer>10</integer>
-        <key>KeepAlive</key>
-        <true/>
+        <integer>600</integer>
+
     </dict>
 </plist>
