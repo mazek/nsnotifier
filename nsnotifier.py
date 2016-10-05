@@ -3,9 +3,9 @@
 import json, urllib2, os
 from time import strftime, gmtime, localtime
 
-ns_url = "http://ns.rajewski.pl/"
+ns_url = "http://yours.nightscout_address.com/"
 min = 80
-max = 100
+max = 160
 
 def notify(title, subtitle, message):
    t = '-title {!r}'.format(title)
@@ -30,7 +30,7 @@ read_time = data['bgs'][0]['datetime']
 if cur_time - read_time > 1800000:
    lost_time = strftime("%d %b %Y %H:%M",localtime(read_time/1000))
    notify(title    = 'Nightscout read.',
-          subtitle = '',
+          subtitle = strftime("%d %b %H:%M",localtime(cur_time/1000)),
           message  = 'I\'ve lost parakeet signal at: %s' % (lost_time))
 
 else:
